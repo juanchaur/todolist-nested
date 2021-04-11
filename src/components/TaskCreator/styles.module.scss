@@ -1,0 +1,23 @@
+@import '~styles/fonts';
+@import '~styles/colors';
+
+.taskCreator {
+  margin-bottom: 30px;
+
+  .input {
+    @include f1-16-regular;
+
+    width: 100%;
+    height: 40px;
+    padding: 0 9px;
+    border-radius: 3px;
+    border: 1px solid $color10;
+    outline: none;
+
+    &:focus {
+      color: $color12;
+      border-color: $color3;
+      box-shadow: 0 0 0 1px $color3;
+    }
+  }
+}
