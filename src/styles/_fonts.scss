@@ -11,34 +11,6 @@ $f1-thing-weight: 200;
   line-height: 1;
   letter-spacing: 0.49px;
 }
-@mixin f1-34-regular {
-	font-family: $fontFamily1;
-	font-size: 34px;
-	font-weight: $f1-regular-weight;
-	line-height: 1;
-	letter-spacing: 0.49px;
-}
-@mixin f1-30-regular {
-	font-family: $fontFamily1;
-	font-size: 30px;
-	font-weight: $f1-regular-weight;
-	line-height: 1.13;
-	letter-spacing: 0.43px;
-}
-@mixin f1-30-medium {
-	font-family: $fontFamily1;
-	font-size: 30px;
-	font-weight: $f1-medium-weight;
-	line-height: 1.13;
-	letter-spacing: 0.43px;
-}
-@mixin f1-24-regular {
-	font-family: $fontFamily1;
-	font-size: 24px;
-	font-weight: $f1-regular-weight;
-	line-height: 1.25;
-	letter-spacing: 0.34px;
-}
 
 @mixin f1-24-thin {
   font-family: $fontFamily1;
@@ -48,131 +20,26 @@ $f1-thing-weight: 200;
   letter-spacing: 0.34px;
 }
 
-@mixin f1-20-semibold {
-	font-family: $fontFamily1;
-	font-size: 20px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1;
-	letter-spacing: 0.29px;
+@mixin f1-20-thin {
+  font-family: $fontFamily1;
+  font-size: 20px;
+  font-weight: $f1-thing-weight;
+  line-height: 1.25;
+  letter-spacing: 0.34px;
 }
-@mixin f1-20-medium {
-	font-family: $fontFamily1;
-	font-size: 20px;
-	font-weight: $f1-medium-weight;
-	line-height: 1.2;
-	letter-spacing: 0.29px;
-}
-@mixin f1-20-regular {
-	font-family: $fontFamily1;
-	font-size: 20px;
-	font-weight: $f1-regular-weight;
-	line-height: 1.2;
-	letter-spacing: 0.29px;
-}
-@mixin f1-18-semibold {
-	font-family: $fontFamily1;
-	font-size: 18px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1;
-	letter-spacing: 0.28px;
-}
-@mixin f1-18-medium {
-	font-family: $fontFamily1;
-	font-size: 18px;
-	font-weight: $f1-medium-weight;
-	line-height: 1.1;
-	letter-spacing: 0.28px;
-}
-@mixin f1-18-regular {
-	font-family: $fontFamily1;
-	font-size: 18px;
-	font-weight: $f1-regular-weight;
-	line-height: 1.1;
-	letter-spacing: 0.28px;
-}
-@mixin f1-16-semibold {
-	font-family: $fontFamily1;
-	font-size: 16px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1;
-	letter-spacing: 0.23px;
-}
-@mixin f1-16-medium {
-	font-family: $fontFamily1;
-	font-size: 16px;
-	font-weight: $f1-medium-weight;
-	line-height: 1;
-	letter-spacing: 0.23px;
-}
+
 @mixin f1-16-regular {
-	font-family: $fontFamily1;
-	font-size: 16px;
-	font-weight: $f1-regular-weight;
-	line-height: 1;
-	letter-spacing: 0.23px;
+  font-family: $fontFamily1;
+  font-size: 16px;
+  font-weight: $f1-regular-weight;
+  line-height: 1;
+  letter-spacing: 0.23px;
 }
+
 @mixin f1-14-regular {
-	font-family: $fontFamily1;
-	font-size: 14px;
-	font-weight: $f1-regular-weight;
-	line-height: 1;
-	letter-spacing: 0.23px;
-}
-@mixin f1-14-medium {
-	font-family: $fontFamily1;
-	font-size: 14px;
-	font-weight: $f1-medium-weight;
-	line-height: 1;
-	letter-spacing: 0.2px;
-}
-@mixin f1-14-semibold {
-	font-family: $fontFamily1;
-	font-size: 14px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1;
-	letter-spacing: 0.2px;
-}
-@mixin f1-12-semibold {
-	font-family: $fontFamily1;
-	font-size: 12px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1;
-	letter-spacing: 0.17px;
-}
-@mixin f1-12-medium {
-	font-family: $fontFamily1;
-	font-size: 12px;
-	font-weight: $f1-medium-weight;
-	line-height: 1;
-	letter-spacing: 0.17px;
-}
-@mixin f1-12-regular {
-	font-family: $fontFamily1;
-	font-size: 12px;
-	font-weight: $f1-regular-weight;
-	line-height: 1;
-	letter-spacing: 0.17px;
-}
-@mixin f1-10-medium {
-	font-family: $fontFamily1;
-	font-size: 10px;
-	font-weight: $f1-medium-weight;
-	line-height: 1.2;
-	letter-spacing: 0.14px;
-}
-
-@mixin f1-10-semibold {
-	font-family: $fontFamily1;
-	font-size: 10px;
-	font-weight: $f1-semibold-weight;
-	line-height: 1.2;
-	letter-spacing: 0.14px;
-}
-
-@mixin f1-10-regular {
-	font-family: $fontFamily1;
-	font-size: 10px;
-	font-weight: $f1-regular-weight;
-	line-height: 1.2;
-	letter-spacing: 0.14px;
+  font-family: $fontFamily1;
+  font-size: 14px;
+  font-weight: $f1-regular-weight;
+  line-height: 1;
+  letter-spacing: 0.23px;
 }

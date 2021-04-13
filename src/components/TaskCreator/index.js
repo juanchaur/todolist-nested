@@ -1,5 +1,3 @@
-
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -24,7 +22,7 @@ const TaskCreator = ({ onCreateTask }) => {
 		<form onSubmit={onSubmit} className={styles.taskCreator}>
 			<input
 				type="text"
-				className={styles.input}
+				className={styles.taskCreator__input}
 				value={value}
 				placeholder="Add a new task"
 				onChange={e => {

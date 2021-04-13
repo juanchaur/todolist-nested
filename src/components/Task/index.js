@@ -1,11 +1,9 @@
-
-/* eslint-disable no-debugger */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { filters } from '../../utils/filters';
+import { filters } from '../../constants/filters';
+
 import styles from './styles.module.scss';
 
 const Task = ({ filter, task, onComplete, onDelete, onNest, onUnNest }) => {
@@ -14,35 +12,34 @@ const Task = ({ filter, task, onComplete, onDelete, onNest, onUnNest }) => {
 			<div
 				className={classnames(
 					styles.task,
-					task.completed ? styles.completed : null
+					task.completed ? styles['task--completed'] : null
 				)}
 			>
-				<label htmlFor={task.id} className={styles.checkbox}>
+				<label htmlFor={task.id} className={styles.task__checkbox}>
 					<input
 						id={task.id}
 						type="checkbox"
+						className={styles.task__checkbox__input}
 						value={task.title}
 						checked={task.completed}
 						onChange={(e) => onComplete(task.id, e.target.checked)}
 					/>
-					<span className={styles.title}>
-					{ task.title }
-				</span>
+					<span className={styles.task__checkbox__title}>{ task.title }</span>
 				</label>
 
 				<button
-					className={classnames(styles.actionBtn, styles.deleteBtn)}
+					className={classnames(styles.task__actionBtn, styles['task__actionBtn--delete'])}
 					onClick={() => onDelete(task.id)}
 				/>
 				{ task.parent ? (
 					<button
-						className={classnames(styles.actionBtn, styles.nestedBtn, styles.leftArrow)}
+						className={classnames(styles.task__actionBtn, styles['task__actionBtn--nested'], styles['task__actionBtn--leftArrow'])}
 						onClick={() => onUnNest(task.id)}
 					/>
 				) : null }
 				{ task.previous ? (
 					<button
-						className={classnames(styles.actionBtn, styles.nestedBtn, styles.rightArrow)}
+						className={classnames(styles.task__actionBtn, styles['task__actionBtn--nested'], styles['task__actionBtn--rightArrow'])}
 						onClick={() => onNest(task.id)}
 					/>
 				) : null }
@@ -62,7 +59,7 @@ const Task = ({ filter, task, onComplete, onDelete, onNest, onUnNest }) => {
 	};
 
 	return (
-		<div className={classnames(task.parent ? styles.nested : null)}>
+		<div className={classnames(task.parent ? styles['task--nested'] : null)}>
 
 			{ shouldRenderTask() ? renderTask () : null }
 

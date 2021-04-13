@@ -1,80 +1,30 @@
 @import '~styles/fonts';
 @import '~styles/colors';
 
-.mainContainer {
+.todoApp {
   margin: 10vh auto;
   max-width: 600px;
 
-  .title {
+  &__title {
     @include f1-100-thin;
     text-align: center;
     color: $color3;
     margin-bottom: 20px;
   }
-  .todosContainer {
+
+  &__paperContainer {
     width: 100%;
     background-color: $color1;
     box-shadow: 0 8px 21px 0 rgba($color3, 0.16);
     border: solid 1px rgba($color3, 0.16);
     padding: 29px 30px 30px;
     border-radius: 10px;
-  }
 
-  .statusBar,
-  .actionBtns {
-    display: flex;
-    align-items: center;
-  }
-  .statusBar {
-    margin-top: 30px;
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid rgba($color3,.2);
-
-    justify-content: space-between;
-
-    @include f1-14-regular;
-
-    .filters {
+    &__actionBtns {
       display: flex;
+      align-items: center;
+      margin-top: 30px;
+      justify-content: space-between;
     }
-  }
-
-  .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 36px;
-    padding: 0 18px;
-    border: 1px solid rgba($color3,.2);
-    border-radius: 3px;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-    margin-right: 10px;
-
-    &.active {
-      background-color: rgba($color3, 0.8);
-      border-color: transparent;
-      color: $color1;
-
-      &:hover {
-        background-color: rgba($color3, 0.8);
-        border-color: transparent;
-        color: $color1;
-      }
-    }
-
-    &:hover {
-      border-color: $color3;
-      background-color: rgba($color3,.2);
-      color: $color3;
-    }
-  }
-
-  .actionBtns {
-    margin-top: 30px;
-    justify-content: space-between;
   }
 }

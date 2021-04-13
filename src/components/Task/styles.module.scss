@@ -1,7 +1,7 @@
 @import '~styles/fonts';
 @import '~styles/colors';
 
-.nested {
+.task--nested {
   margin-left: 20px;
 }
 
@@ -9,61 +9,61 @@
   margin-bottom: 5px;
   display: flex;
   align-items: center;
-
-  &.completed {
+  &--completed {
     .title {
       text-decoration: line-through;
       opacity: .5;
     }
   }
 
-  .checkbox {
+  &__checkbox {
     display: flex;
     flex: 1;
     align-items: center;
     position: relative;
     cursor: pointer;
 
-    input {
+    &__input {
       height: 20px;
       width: 20px;
       margin: 0;
       appearance: none;
       outline: none;
       border-radius: 4px;
-      border: 1px solid $color12;
+      border: 1px solid $color6;
       background-color: $color1;
       transition-duration: 0.3s;
       cursor: pointer;
-    }
 
-    input:checked {
-      border: 1px solid $color12;
-      background-color: $color3;
+      &:checked {
+        border: 1px solid $color6;
+        background-color: $color3;
 
-      &:before {
-        content: '\2713';
-        display: block;
-        text-align: center;
-        color: $color1;
-        font-size: 15px;
-        position: absolute;
-        left: 5px;
+        &:before {
+          content: '\2713';
+          display: block;
+          text-align: center;
+          color: $color1;
+          font-size: 15px;
+          position: absolute;
+          left: 5px;
+        }
       }
     }
+
+    &__title {
+      @include f1-24-thin;
+      margin-left: 10px;
+    }
   }
 
-  .title {
-    @include f1-24-thin;
-    margin-left: 10px;
-  }
 
   &:hover {
-    .actionBtn {
+    .task__actionBtn {
       display: flex;
     }
   }
-  .actionBtn {
+  &__actionBtn {
     display: none;
     appearance: none;
     border: none;
@@ -81,24 +81,22 @@
     }
 
     &:after {
-      @include f1-24-thin;
-      font-size: 23px;
+      @include f1-20-thin;
     }
-  }
 
-  .deleteBtn {
-    color: $color14;
-    &:after {
-      content: 'x';
+    &--delete {
+      color: $color4;
+      &:after {
+        content: 'x';
+      }
     }
-  }
-  .nestedBtn {
-    color: $color3;
-
-    &.rightArrow:after {
+    &--nested {
+      color: $color3;
+    }
+    &--rightArrow:after {
       content: '→';
     }
-    &.leftArrow:after {
+    &--leftArrow:after {
       content: '←';
     }
   }
