@@ -1,6 +1,7 @@
 # Nested To Do List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./screenShots/todolist.gif" alt="Todo List App" width=400 />
+
 
 ## Available Scripts
 
