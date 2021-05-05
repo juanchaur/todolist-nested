@@ -5,7 +5,6 @@
 ## Demo
 You can find a demo [here](https://juanchaur.github.io/todolist-nested/)
 
-
 ## Build Setup
 
 In the project directory, you can run:
