@@ -1,43 +1,37 @@
-name: Pull Request Comment Trigger Example
+name: Meme Generator
 on:
-  pull_request:
-    types: [opened]
   issue_comment:
     types: [created]
 
 jobs:
-  hello:
+  greeting:
     runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request && github.event.comment.body == '/addMeme'}}
     steps:
-      - uses: khan/pull-request-comment-trigger@master
-        id: check
-        with:
-          trigger: '#hello'
-      - run: 'echo Found it!'
-        if: steps.check.outputs.triggered == 'true'
+      - uses: actions/checkout@master
+      - name: Run Memer Action
+        id: memer
 
-  eyes:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: khan/pull-request-comment-trigger@master
-        id: check
+        uses: Bhupesh-V/memer-action@master
         with:
-          trigger: '#look'
-          reaction: eyes
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
-        if: steps.check.outputs.triggered == 'true'
+          filter: "hot"
+          fallback: '{"meme_link":"https://i.redd.it/6rcvbzulfrj51.png", "title": "true that", "src": "https://i.redd.it/6rcvbzulfrj51.png"}'
 
-  rocket:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: khan/pull-request-comment-trigger@master
-        id: check
+      - name: Check Outputs
+        run: |
+          echo "${{ steps.memer.outputs.meme }}"
+          echo "${{ steps.memer.outputs.title }}"
+          echo "${{ steps.memer.outputs.source }}"
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1.3.0
+        id: couc
         with:
-          trigger: '#deploy'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
-        if: steps.check.outputs.triggered == 'true'
+          issue-number: ${{ github.event.number }}
+          body: |
+            > **${{ steps.memer.outputs.title }}**
+            ![meme](${{ steps.memer.outputs.meme }})
+            <sub>ℹ️ <a href="${{ steps.memer.outputs.source }}">Source</a></sub>
+
+
+
