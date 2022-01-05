@@ -1,7 +1,7 @@
 name: pull request comment
 on:
   issue_comment:
-    types: [created, edited, deleted]
+    types: [created, edited]
 
 jobs:
   job01:
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: say hello
+      - uses: hmarr/debug-action@v2
         if: contains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
         run: |
-          echo ${{github.event}}
+          echo ${{github.event.pull_request}}
