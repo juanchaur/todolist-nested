@@ -1,15 +1,36 @@
-name: pull request comment
+name: Memetor
 on:
   issue_comment:
     types: [created, edited]
-
 jobs:
-  job01:
-    if: contains(github.event.comment.html_url, '/pull/')    # check if the comments come from pull request, exclude those from issue.
+  memetor:
+    if: contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, '/addMeme')    # check if the comments come from pull request, exclude those from issue.
     runs-on: ubuntu-latest
     steps:
-      - uses: hmarr/debug-action@v2
-      - name: say hello
-        if: contains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
+      - uses: actions/checkout@master
+      - name: Run Memer Action
+        id: memer
+
+        uses: Bhupesh-V/memer-action@master
+        with:
+          filter: "new"
+          fallback: '{"meme_link":"https://i.redd.it/6rcvbzulfrj51.png", "title": "true that", "src": "https://i.redd.it/6rcvbzulfrj51.png"}'
+
+      - name: Check Outputs
         run: |
-          echo ${{github.event.pull_request}}
+          echo "${{ steps.memer.outputs.meme }}"
+          echo "${{ steps.memer.outputs.title }}"
+          echo "${{ steps.memer.outputs.source }}"
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1.3.0
+        id: couc
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            > **${{ steps.memer.outputs.title }}**
+            ![meme](${{ steps.memer.outputs.meme }})
+            <sub>ℹ️ <a href="${{ steps.memer.outputs.source }}">Source</a></sub>
+
+
+
