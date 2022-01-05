@@ -27,10 +27,7 @@ jobs:
         id: couc
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: |
-            > **${{ steps.memer.outputs.title }}**
-            ![meme](${{ steps.memer.outputs.meme }})
-            <sub>ℹ️ <a href="${{ steps.memer.outputs.source }}">Source</a></sub>
+          body: ![meme](${{ steps.memer.outputs.meme }})
 
 
 
