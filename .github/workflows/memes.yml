@@ -6,7 +6,7 @@ on:
 jobs:
   greeting:
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request && github.event.comment.body == '/addMeme'}}
+    if: ${{ github.event.issue.pull_request && github.event.comment.body == 'addMeme'}}
     steps:
       - uses: actions/checkout@master
       - name: Run Memer Action
@@ -14,8 +14,8 @@ jobs:
 
         uses: Bhupesh-V/memer-action@master
         with:
-          filter: "hot"
-          fallback: '{"meme_link":"https://i.redd.it/6rcvbzulfrj51.png", "title": "true that", "src": "https://i.redd.it/6rcvbzulfrj51.png"}'
+          filter: "new"
+#          fallback: '{"meme_link":"https://i.redd.it/6rcvbzulfrj51.png", "title": "true that", "src": "https://i.redd.it/6rcvbzulfrj51.png"}'
 
       - name: Check Outputs
         run: |
