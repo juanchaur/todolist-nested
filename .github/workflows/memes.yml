@@ -1,12 +1,11 @@
-name: Meme Generator
+name: Memetor
 on:
   issue_comment:
-    types:
-      - created
+    types: [created, edited, deleted]
 jobs:
-  greeting:
+  memetor:
+    if: contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, '/addMeme')    # check if the comments come from pull request, exclude those from issue.
     runs-on: ubuntu-latest
-    if: ${{ github.event.issue.pull_request && github.event.comment.body == 'addMeme'}}
     steps:
       - uses: actions/checkout@master
       - name: Run Memer Action
