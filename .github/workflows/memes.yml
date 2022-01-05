@@ -27,7 +27,8 @@ jobs:
         id: couc
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: ![meme](${{ steps.memer.outputs.meme }})
+          body: |
+            ![meme](${{ steps.memer.outputs.meme }})
 
 
 
