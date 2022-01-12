@@ -2,9 +2,10 @@ name: Memetor
 on:
   issue_comment:
     types: [created, edited]
+  pull_request:
 jobs:
   memetor:
-    if: contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, '/addMeme')    # check if the comments come from pull request, exclude those from issue.
+    if: ((github.event_name == 'issue_comment' && contains(github.event.comment.html_url, '/pull/')) || github.event_name == 'pull_request') && contains(github.event.comment.body, '/addMeme'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
