@@ -25,7 +25,6 @@ jobs:
       - name: Add Meme on comment
         if: github.event_name == 'issue_comment'
         uses: peter-evans/create-or-update-comment@v1.3.0
-        id: couc
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -33,7 +32,6 @@ jobs:
       - name: Add Meme on PR open
         if: github.event_name == 'pull_request'
         uses: peter-evans/create-or-update-comment@v1.3.0
-        id: couc
         with:
           issue-number: ${{ github.event.number }}
           body: |
