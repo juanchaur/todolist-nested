@@ -10,6 +10,9 @@ describe('Hooks: useLocalStorage', () => {
 			getItem: jest.fn(),
 			setItem: jest.fn(),
 			clear: jest.fn(),
+			
+			
+			
 		};
 
 		global.localStorage = localStorageMock;
