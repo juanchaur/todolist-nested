@@ -5,9 +5,9 @@ on:
   pull_request:
 jobs:
   memetor:
-    if: ((github.event_name == 'issue_comment' && contains(github.event.comment.html_url, '/pull/')) || github.event_name == 'pull_request') && contains(github.event.comment.body, '/addMeme'))
     runs-on: ubuntu-latest
     steps:
+      - uses: hmarr/debug-action@v2
       - uses: actions/checkout@master
       - name: Run Memer Action
         id: memer
