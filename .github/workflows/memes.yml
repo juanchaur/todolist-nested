@@ -1,13 +1,13 @@
 name: Memetor
 on:
   issue_comment:
-    types: [created, edited]
+    types: [ created, edited ]
   pull_request:
 jobs:
   memetor:
+    if: ((github.event_name == 'issue_comment' && contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, '/addMeme'))) || (github.event_name == 'pull_request') && && contains(github.event.pull_request.body, '/addMeme'))) 
     runs-on: ubuntu-latest
     steps:
-      - uses: hmarr/debug-action@v2
       - uses: actions/checkout@master
       - name: Run Memer Action
         id: memer
@@ -15,7 +15,6 @@ jobs:
         uses: Bhupesh-V/memer-action@master
         with:
           filter: "new"
-          fallback: '{"meme_link":"https://i.redd.it/6rcvbzulfrj51.png", "title": "true that", "src": "https://i.redd.it/6rcvbzulfrj51.png"}'
 
       - name: Check Outputs
         run: |
@@ -23,13 +22,19 @@ jobs:
           echo "${{ steps.memer.outputs.title }}"
           echo "${{ steps.memer.outputs.source }}"
 
-      - name: Create comment
+      - name: Add Meme on comment
+        if: github.event_name == 'issue_comment'
         uses: peter-evans/create-or-update-comment@v1.3.0
         id: couc
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
             ![meme](${{ steps.memer.outputs.meme }})
-
-
-
+      - name: Add Meme on PR open
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v1.3.0
+        id: couc
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            ![meme](${{ steps.memer.outputs.meme }})
